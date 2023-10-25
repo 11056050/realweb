@@ -4,12 +4,25 @@
 {% block headmessage %}<h3 style ="font-family:標楷體;"> Menu</a>{% endblock headmessage %}
 {% block content %}
 {% for post in posts %}
-<p style = "font-family:微軟正黑體;font-size:14pt;font-weight:bold;">
-    <a href ="/post/{{post.slug}}">{{post.title}}</a>
-</p>
+<div class ='card'>
+    <div class='card-header'>
+        <p style = "font-family:微軟正黑體;font-size:14pt;font-weight:bold;">
+            <a href ="/post/{{post.slug}}">{{post.title}}</a>
+        </p>
+    </div>
+    <div class ='card-body' style="background-color:#979797">
+        <p>
+            {{ post.body | truncatechars:40 }}
+        </p>
+    </div>
+    <div class='card-footer' style='background-color:#FFFFFF'>
+        <p>
+            posted:{{post.pub_date | date:"Y M d, h:m:s"}}
+        </p>
+    </div>
+</div>
+<br>
 {% endfor %}
-        <hr>
-        Time: {{ now }}
 {% endblock content %}
 
 
