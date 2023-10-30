@@ -20,5 +20,5 @@ from realsite import views as mv
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mv.homepage, name="homepage"),
-    path('post/<slug:slug>/', mv.showpost, name="showpost"),
+    path('book/<str:book_name>/', mv.showbook, name='book_detail'),
 ]

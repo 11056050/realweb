@@ -1,9 +1,6 @@
 from django.contrib import admin
-from realsite.models import Post
-# Register your models here.
-
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'pub_date')
+from realsite.models import Book
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('booktitle', 'picture', 'info', 'creator', 'pub_date', 'release')
     
-admin.site.register(Post, PostAdmin)
-
+admin.site.register(Book, BookAdmin)
