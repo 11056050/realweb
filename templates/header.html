@@ -1,8 +1,37 @@
+{% load static %}
+{% include 'search_form.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Your other head elements here -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 35vh;
+            background-color: #f0f0f0;
+        }
 
-{% load static  %}
-<div class = 'well'>
-    <img src = "{%static "images/8-VA5pOe4BC9LfkQt.png" %}"height="300">
-</div>
+        .well {
+            text-align: center;
+        }
 
+        .well img {
+            height: 300px;
+        }
 
-<h1 style= 'font-family:微軟正黑體;'>Welcome to word hell</h1>
+        h1 {
+            font-family: 微軟正黑體;
+        }
+    </style>
+</head>
+<body>
+    <div class='well'>
+        <img src="{% static 'images/8-VA5pOe4BC9LfkQt.png' %}" alt="Your Image" />
+    </div>
+    <h1>Welcome to word hell</h1>
+</body>
+</html>

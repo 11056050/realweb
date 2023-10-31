@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% extends "base2.html" %}
-{% block title %}Welcome to my blog{% endblock title %}
-{% block headmessage %}<h3 style="font-family:標楷體;"> Menu</h3>{% endblock headmessage %}
+{% block title %}Welcome to word hell{% endblock title %}
+{% block headmessage %}<h3 style="font-family:標楷體;"> Books</h3>{% endblock headmessage %}
 {% block content %}
 
 <div class='card-footer' style='background-color:#FFFFFF'></div>
@@ -14,8 +14,11 @@
         </p>
     </div>
     <div class='card-body' style="background-color:#979797">
+        <div class="book-image">
+            <img src="{{ book.picture.url }}" alt="{{ book.booktitle }}" style="max-width: 100%; max-height: 200px;" />
+        </div>
         <p>
-            {{ book.info | truncatechars:40 }}
+            {{ book.picture | truncatechars:40 }}
         </p>
     </div>
     <div class='card-footer' style='background-color:#FFFFFF'></div>
