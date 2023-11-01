@@ -5,8 +5,13 @@ from datetime import datetime
 from .forms import PostSearchForm
 from django.db.models import Q
 from .forms import BookForm
+from django.shortcuts import render, get_object_or_404
+from .models import Writer
 
-# Create your views here.
+def writer_post(request, writer_id):
+    writer = get_object_or_404(Writer, pk=writer_id)
+    return render(request, 'writer_post.html', {'writer': writer})
+
 def create_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
@@ -23,7 +28,6 @@ def search_posts(request):
 
     if form.is_valid():
         search_query = form.cleaned_data['search_query']
-        # Modify the filter to use the correct fields
         posts = posts.filter(Q(booktitle__icontains=search_query) | Q(info__icontains=search_query))
 
     return render(request, 'search_results.html', {'posts': posts, 'form': form})
